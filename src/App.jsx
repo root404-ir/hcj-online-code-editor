@@ -1,6 +1,10 @@
+import LanguageSelector from "./components/LanguageSelector"
+
 const App = () => {
   return (
-    <div>App</div>
+    <div>
+      <LanguageSelector />
+    </div>
   )
 }
 export default App
