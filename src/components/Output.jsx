@@ -23,14 +23,17 @@ const Output = ({ html = "", css = "", javascript = "" }) => {
         `
     }, [html, css, javascript])
     return (
-        <Box>
-            <iframe
-                title='output'
-                srcDoc={srcDoc}
-                sandbox='allow-scripts'
-                style={{ width: "100%", height: "100%", border: "none", borderRadius: "10px", boxShadow: "0 0 20px green" }}
-            />
+        <Box width={'100%'}>
+            <Box height="70vh" border="1px solid #333" borderRadius="10px">
+                <iframe
+                    title='output'
+                    srcDoc={srcDoc}
+                    sandbox='allow-scripts'
+                    style={{ width: "100%", height: "100%", border: "none", borderRadius: "10px", boxShadow: "0 0 20px green" }}
+                />
+            </Box>
         </Box>
+
     )
 }
 
