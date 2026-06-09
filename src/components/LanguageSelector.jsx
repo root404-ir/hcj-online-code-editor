@@ -1,4 +1,4 @@
-import { Box, Text, Menu, Button, MenuButton, MenuList, MenuItem } from "@chakra-ui/react"
+import { Box, Text, Menu, Button } from "@chakra-ui/react"
 import { LANGUAGE_VERSION } from "../constants"
 const ACTIVE_COLOR = 'blue.700'
 const languages = Object.entries(LANGUAGE_VERSION)
@@ -6,21 +6,25 @@ const LanguageSelector = ({ language, onSelect }) => {
     return (
         <Box mb={2}>
             <Text>select language : </Text>
-            <Menu>
-                <MenuButton as={Button}>
+            <Menu.Root>
+                <Menu.Trigger />
+                <Button as={Button}>
                     {language}
-                </MenuButton>
-                <MenuList>
+                </Button>
+                <Menu.Positioner>
+                <Menu.Content>
                     {languages.map(([lang, version]) => (
-                        <MenuItem key={lang} color={lang === language ? ACTIVE_COLOR : ''} bg={lang === language ? 'gray.700' : 'transparent'} onClick={() => onSelect(lang)}>
+                        <Menu.Item key={lang} color={lang === language ? ACTIVE_COLOR : ''} bg={lang === language ? 'gray.700' : 'transparent'} onClick={() => onSelect(lang)}>
                             {lang}
                             <Text>
                                 {version}
                             </Text>
-                        </MenuItem>
+                        </Menu.Item>
                     ))}
-                </MenuList>
-            </Menu>
+                </Menu.Content>
+
+                </Menu.Positioner>
+            </Menu.Root>
         </Box>
     )
 }

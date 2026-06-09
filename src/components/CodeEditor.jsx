@@ -3,6 +3,7 @@ import { useState } from "react"
 import { CODE_SNIPPETS } from "../constants"
 import { Box, Button, HStack, Text } from "@chakra-ui/react"
 import LanguageSelector from "./LanguageSelector"
+import Output from "./Output"
 
 const CodeEditor = () => {
   const [language, setLanguage] = useState('html')
@@ -62,10 +63,12 @@ const CodeEditor = () => {
             onChange={handleChange}
             width={'100%'}
           />
-          <Box position={'absolute'} top={-20} right={0}>
+          <Box position={'absolute'} top={0} right={0}>
             <Button boxShadow={'0 0 20px 5px green'} _hover={{ padding: '10px 30px', boxShadow: '0 0 20px 8px #51a2ff' }} transition={'all 0.3s'} onClick={runCode}>Run Code</Button>
           </Box>
+          <Output html={output.html} css={output.css} javascript={output.javascript} />
         </div>
+
       </HStack>
     </Box>
   )

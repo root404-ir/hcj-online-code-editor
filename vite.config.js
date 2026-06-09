@@ -10,4 +10,8 @@ export default defineConfig({
     tailwindcss(),
     babel({ presets: [reactCompilerPreset()] })
   ],
+  resolve: {
+    jsconfigPaths: true,
+
+  }
 })
