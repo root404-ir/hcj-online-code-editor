@@ -51,11 +51,6 @@ const CodeEditor = () => {
             <LanguageSelector language={language} onSelect={setLanguage} />
             <Box>
               <Text mb={2}>select theme: </Text>
-              {/* <select value={theme} onChange={(e) => setTheme(e.target.value)}>
-                <option value="vs-dark">Dark</option>
-                <option value="vc-light">Light</option>
-                <option value="hc-black">High Contrast</option>
-              </select> */}
               <Menu.Root>
                 <Menu.Trigger asChild>
                   <Button
@@ -109,14 +104,12 @@ const CodeEditor = () => {
               onChange={handleChange}
               width={'100%'}
             />
-            <Box position={'absolute'} top={0} right={0}>
+            <Box position={'absolute'} top={-20} right={0}>
               <Button boxShadow={'0 0 20px 5px green'} _hover={{ padding: '10px 30px', boxShadow: '0 0 20px 8px #51a2ff' }} transition={'all 0.3s'} onClick={runCode}>Run Code</Button>
             </Box>
             <Output html={output.html} css={output.css} javascript={output.javascript} />
           </div>
-
         </Box>
-
       </HStack>
     </Box>
   )
