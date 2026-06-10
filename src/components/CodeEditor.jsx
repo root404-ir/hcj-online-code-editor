@@ -4,6 +4,8 @@ import { CODE_SNIPPETS } from "../constants"
 import { Box, Button, HStack, Menu, Text } from "@chakra-ui/react"
 import LanguageSelector from "./LanguageSelector"
 import Output from "./Output"
+import { MdColorLens } from "react-icons/md";
+import { LuCheck } from "react-icons/lu";
 
 const CodeEditor = () => {
   const [language, setLanguage] = useState('html')
@@ -11,7 +13,11 @@ const CodeEditor = () => {
   const [html, setHtml] = useState(CODE_SNIPPETS.html || '')
   const [css, setCss] = useState(CODE_SNIPPETS.css || '')
   const [javascript, setJavascript] = useState(CODE_SNIPPETS.javascript || '')
-
+  const themes = [
+    { label: 'Dark', value: 'vs-dark' },
+    { label: 'Light', value: 'vc-light' },
+    { label: 'High Contrast', value: 'hc-black' }
+  ]
   const [output, setOutput] = useState({
     html: CODE_SNIPPETS.html || '',
     css: CODE_SNIPPETS.css || '',
@@ -37,7 +43,6 @@ const CodeEditor = () => {
       javascript
     })
   }
-
   return (
     <Box>
       <HStack spacing={4}>
@@ -68,6 +73,7 @@ const CodeEditor = () => {
                       borderColor: "blue.400",
                     }}
                   >
+                    <MdColorLens color="#fff" />
                     <HStack gap={2}>
                       <Text fontFamily={'mono'}>{theme}</Text>
                     </HStack>
@@ -82,12 +88,12 @@ const CodeEditor = () => {
                     minW="250px"
                     shadow="xl"
                   >
-                    <Menu.Item value='vs-dark' onClick={() => setTheme('vs-dark')}
-                    >Dark</Menu.Item>
-                    <Menu.Item value='vc-light' onClick={() => setTheme('vc-light')}
-                    >Light</Menu.Item>
-                    <Menu.Item value='hc-black' onClick={() => setTheme('hc-black')}
-                    >High Contrast</Menu.Item>
+                    {themes.map(t => (
+                      <Menu.Item key={t.value} onClick={() => setTheme(t.value)}>
+                        {theme === t.value && <LuCheck />}
+                        {t.label}
+                      </Menu.Item>
+                    ))}
                   </Menu.Content>
                 </Menu.Positioner>
               </Menu.Root>
