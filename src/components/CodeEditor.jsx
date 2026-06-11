@@ -6,6 +6,7 @@ import LanguageSelector from "./LanguageSelector"
 import Output from "./Output"
 import { MdColorLens } from "react-icons/md";
 import { LuCheck } from "react-icons/lu";
+import DownloadCode from "./DownloadCode"
 
 const CodeEditor = () => {
   const [language, setLanguage] = useState('html')
@@ -95,7 +96,14 @@ const CodeEditor = () => {
             </Box>
           </Box>
 
-          <div style={{ display: 'flex', alignItems: 'center', width: '100%', gap: '10px', position: 'relative' }}>
+          <Box>
+            <Box w={'50%'} display={'flex'} gap={6} justifyContent={'space-between'} px={4} mt={'4rem'} position={'absolute'} top={0} right={0}>
+              <DownloadCode html={html} css={css} javascript={javascript} projectName="my-project" />
+              <Box>
+                <Button boxShadow={'0 0 12px 3px green'} bg={'gray.900'} border={'1px solid #fff'} color={'#fff'} _hover={{ padding: '10px 30px', boxShadow: '0 0 10px 5px #51a2ff' }} transition={'all 0.3s'} onClick={runCode}>Run Code</Button>
+              </Box>
+            </Box>
+            <Box display={'flex'} gap={3}>
             <Editor
               height='70vh'
               theme={theme}
@@ -104,11 +112,9 @@ const CodeEditor = () => {
               onChange={handleChange}
               width={'100%'}
             />
-            <Box position={'absolute'} top={-20} right={0}>
-              <Button boxShadow={'0 0 12px 3px green'} bg={'gray.900'} border={'1px solid #fff'} color={'#fff'} _hover={{ padding: '10px 30px', boxShadow: '0 0 10px 5px #51a2ff' }} transition={'all 0.3s'} onClick={runCode}>Run Code</Button>
-            </Box>
             <Output html={output.html} css={output.css} javascript={output.javascript} />
-          </div>
+            </Box>
+          </Box>
         </Box>
       </HStack>
     </Box>
