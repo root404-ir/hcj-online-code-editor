@@ -50,7 +50,7 @@ const CodeEditor = () => {
           <Box mb={4} w={'30%'} display={'flex'} columnGap={'8'}>
             <LanguageSelector language={language} onSelect={setLanguage} />
             <Box>
-              <Text mb={2}>select theme: </Text>
+              <Text mb={2} fontFamily={'monospace'}>select theme</Text>
               <Menu.Root>
                 <Menu.Trigger asChild>
                   <Button
@@ -105,7 +105,7 @@ const CodeEditor = () => {
               width={'100%'}
             />
             <Box position={'absolute'} top={-20} right={0}>
-              <Button boxShadow={'0 0 20px 5px green'} _hover={{ padding: '10px 30px', boxShadow: '0 0 20px 8px #51a2ff' }} transition={'all 0.3s'} onClick={runCode}>Run Code</Button>
+              <Button boxShadow={'0 0 12px 3px green'} bg={'gray.900'} border={'1px solid #fff'} color={'#fff'} _hover={{ padding: '10px 30px', boxShadow: '0 0 10px 5px #51a2ff' }} transition={'all 0.3s'} onClick={runCode}>Run Code</Button>
             </Box>
             <Output html={output.html} css={output.css} javascript={output.javascript} />
           </div>

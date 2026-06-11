@@ -6,7 +6,7 @@ import { LuCheck, LuCode, LuChevronDown } from "react-icons/lu";
 const LanguageSelector = ({ language, onSelect }) => {
     return (
         <Box mb={2}>
-            <Text mb={2}>select language : </Text>
+            <Text mb={2} fontFamily={'monospace'}>select language</Text>
             <Menu.Root>
                 <Menu.Trigger asChild>
                     <Button
