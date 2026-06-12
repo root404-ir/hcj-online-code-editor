@@ -1,5 +1,8 @@
 import { Box, Text, Menu, Button, Flex, HStack } from "@chakra-ui/react"
 import { LANGUAGE_VERSION } from "../constants"
+import { IoLogoJavascript } from "react-icons/io";
+import { IoLogoHtml5 } from "react-icons/io";
+import { IoLogoCss3 } from "react-icons/io";
 const ACTIVE_COLOR = 'blue.700'
 const languages = Object.entries(LANGUAGE_VERSION)
 import { LuCheck, LuCode, LuChevronDown } from "react-icons/lu";
@@ -76,6 +79,7 @@ const LanguageSelector = ({ language, onSelect }) => {
                                                 fontWeight={isActive ? "semibold" : "normal"}
                                             >
                                                 {lang}
+
                                             </Text>
                                         </HStack>
 
@@ -86,6 +90,9 @@ const LanguageSelector = ({ language, onSelect }) => {
                                             {version}
                                         </Text>
                                     </Flex>
+                                    {lang === "javascript" && <IoLogoJavascript />}
+                                    {lang === "html" && <IoLogoHtml5 />}
+                                    {lang === "css" && <IoLogoCss3 />}
                                 </Menu.Item>
                             );
                         })}
@@ -97,8 +104,4 @@ const LanguageSelector = ({ language, onSelect }) => {
 }
 
 export default LanguageSelector
-
-
-
-
 

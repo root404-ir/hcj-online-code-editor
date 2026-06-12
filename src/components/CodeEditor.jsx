@@ -49,7 +49,7 @@ const CodeEditor = () => {
       <HStack spacing={4}>
         <Box w={'100%'}>
           <Box mb={4} w={'30%'} display={'flex'} columnGap={'8'}>
-            <LanguageSelector language={language} onSelect={setLanguage} />
+            <LanguageSelector language={language} onSelect={setLanguage} javascript={javascript} html={html} css={css} />
             <Box>
               <Text mb={2} fontFamily={'monospace'}>select theme</Text>
               <Menu.Root>
@@ -104,15 +104,15 @@ const CodeEditor = () => {
               </Box>
             </Box>
             <Box display={'flex'} gap={3}>
-            <Editor
-              height='70vh'
-              theme={theme}
-              language={language}
-              value={getValue()}
-              onChange={handleChange}
-              width={'100%'}
-            />
-            <Output html={output.html} css={output.css} javascript={output.javascript} />
+              <Editor
+                height='70vh'
+                theme={theme}
+                language={language}
+                value={getValue()}
+                onChange={handleChange}
+                width={'100%'}
+              />
+              <Output html={output.html} css={output.css} javascript={output.javascript} />
             </Box>
           </Box>
         </Box>
