@@ -90,9 +90,9 @@ const LanguageSelector = ({ language, onSelect }) => {
                                             {version}
                                         </Text>
                                     </Flex>
-                                    {lang === "javascript" && <IoLogoJavascript />}
-                                    {lang === "html" && <IoLogoHtml5 />}
-                                    {lang === "css" && <IoLogoCss3 />}
+                                    {lang === "javascript" && <IoLogoJavascript size={18}/>}
+                                    {lang === "html" && <IoLogoHtml5 size={18}/>}
+                                    {lang === "css" && <IoLogoCss3 size={18}/>}
                                 </Menu.Item>
                             );
                         })}
