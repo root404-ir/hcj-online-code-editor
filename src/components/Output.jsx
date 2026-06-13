@@ -15,7 +15,7 @@ const Output = ({ html = "", css = "", javascript = "" }) => {
                     try{
                         ${javascript}
                     }catch(err){
-                        document.body.innerHtml = "<pre style='color:red'>" + err + "</pre>"
+                        document.body.innerHTML = "<pre style='color:red'>" + err + "</pre>"
                     }
                 </script>
                 </body>
