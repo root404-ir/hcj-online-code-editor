@@ -1,4 +1,4 @@
-import { Button, Dialog, Input, Portal, useDisclosure, VStack } from '@chakra-ui/react'
+import { Button, Dialog, Input, Portal, Text, useDisclosure, VStack } from '@chakra-ui/react'
 import { saveAs } from 'file-saver'
 import JSZip from 'jszip'
 import { useState } from 'react'
@@ -6,7 +6,12 @@ import { useState } from 'react'
 const DownloadCode = ({ html, css, javascript }) => {
     const { open, onOpen, onClose } = useDisclosure()
     const [projectName, setProjectName] = useState("my-project")
+    const [error, setError] = useState('')
     const downloadProject = async () => {
+        if (!projectName.trim()) {
+            setError('Project name is required')
+            return
+        }
         try {
             const zip = new JSZip()
             const htmlFile = `
@@ -54,8 +59,15 @@ const DownloadCode = ({ html, css, javascript }) => {
                                     <Input
                                         placeholder="Enter your project name..."
                                         value={projectName}
-                                        onChange={(e) => setProjectName(e.target.value)}
+                                        onChange={(e) => {
+                                            setProjectName(e.target.value)
+                                            if (error) {
+                                                setError("")
+                                            }
+                                        }}
+
                                     />
+                                    {error && <Text color={'red.500'}>{error}</Text>}
                                 </VStack>
                             </Dialog.Body>
                             <Dialog.Footer gap={3}>
