@@ -1,1 +1,12 @@
 @import 'tailwindcss';
+
+.code_container
+{
+    width: 400px;
+    height: 400px;
+    background-color: aqua;
+    border-radius: 100%;
+    filter: blur(300px);
+    position: absolute;
+    right: 50%;
+}
