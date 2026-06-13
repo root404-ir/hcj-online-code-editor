@@ -14,7 +14,7 @@ const App = () => {
           <div className="flex justify-between">
           <SocialIcons />
             <Text fontFamily={'monospace'} className="text-9xl  text-center text-shadow-2xl text-shadow-green-500" fontSize={17}>online html,css,js code editor</Text>
-            <Text className="text-right" fontSize={17} fontFamily={'monospace'}>v0.3.0</Text>
+            <Text className="text-right" fontSize={17} fontFamily={'monospace'}>v0.3.1</Text>
           </div>
           <CodeEditor editorRef={editorRef} />
         </Box>
