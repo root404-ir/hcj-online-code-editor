@@ -4,6 +4,7 @@ import DownloadCode from "./DownloadCode"
 import Output from "./Output"
 
 const EditorSection = ({ theme, language, getValue, handleChange, html, css, javascript, output, runCode }) => {
+
     return (
         <Box>
             <Box gap={6} display={'flex'} justifyContent={'right'} flex={1} mb={4}>
