@@ -1,11 +1,14 @@
-import { Box, Button, HStack, Menu,Text } from "@chakra-ui/react"
+import { Box, Button, HStack, Menu, Text } from "@chakra-ui/react"
 import { LuCheck } from "react-icons/lu"
 import { MdColorLens } from "react-icons/md"
+import { flicker } from "./style/TextShadow"
 
-const ThemeSelect = ({ theme, setTheme,themes }) => {
+const ThemeSelect = ({ theme, setTheme, themes }) => {
     return (
         <Box>
-            <Text mb={2} fontFamily={'monospace'}>select theme</Text>
+            <Text
+                animation={`${flicker} 1.5s infinite`}
+                mb={2} fontFamily={'monospace'}>select theme</Text>
             <Menu.Root>
                 <Menu.Trigger asChild>
                     <Button

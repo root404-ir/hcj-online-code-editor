@@ -6,10 +6,13 @@ import { IoLogoCss3 } from "react-icons/io";
 const ACTIVE_COLOR = 'blue.700'
 const languages = Object.entries(LANGUAGE_VERSION)
 import { LuCheck, LuCode, LuChevronDown } from "react-icons/lu";
+import { flicker } from "./style/TextShadow";
 const LanguageSelector = ({ language, onSelect }) => {
     return (
         <Box mb={2}>
-            <Text mb={2} fontFamily={'monospace'}>select language</Text>
+            <Text
+            animation={`${flicker} 1.5s infinite`}
+            mb={2} fontFamily={'monospace'}>select language</Text>
             <Menu.Root>
                 <Menu.Trigger asChild>
                     <Button

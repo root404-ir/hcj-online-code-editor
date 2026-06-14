@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 
-.code_container
+/* .code_container
 {
     width: 400px;
     height: 400px;
@@ -9,4 +9,4 @@
     filter: blur(300px);
     position: absolute;
     right: 50%;
-}
+} */
