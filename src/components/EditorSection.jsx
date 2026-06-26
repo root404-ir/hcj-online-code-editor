@@ -3,9 +3,16 @@ import { Editor } from "@monaco-editor/react"
 import DownloadCode from "./DownloadCode"
 import Output from "./Output"
 import Split from "react-split"
+import { useEffect, useState } from "react"
 
 const EditorSection = ({ theme, language, getValue, handleChange, html, css, javascript, output, runCode }) => {
-
+    const [size, setSize] = useState(() => {
+        const saved = localStorage.getItem('editor-layout')
+        return saved ? JSON.parse(saved) : [25, 75]
+    })
+    useEffect(() => {
+        localStorage.setItem('editor-layout', JSON.stringify(size))
+    }, [size])
     return (
         <Box>
             <Box gap={6} display={'flex'} justifyContent={'right'} flex={1} mb={4}>
@@ -15,7 +22,7 @@ const EditorSection = ({ theme, language, getValue, handleChange, html, css, jav
                 </Box>
             </Box>
             <Split
-                sizes={[25, 75]}
+                sizes={size}
                 minSize={100}
                 expandToMin={false}
                 gutterSize={10}
@@ -24,6 +31,7 @@ const EditorSection = ({ theme, language, getValue, handleChange, html, css, jav
                 dragInterval={1}
                 direction="horizontal"
                 cursor="col-resize"
+                onDragEnd={(newSize) => setSize(newSize)}
                 style={{
                     display: 'flex',
                     height: '70vh'
