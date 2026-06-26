@@ -10,3 +10,11 @@
     position: absolute;
     right: 50%;
 } */
+.gutter {
+  background-color: cyan;
+  cursor: col-resize;
+}
+
+.gutter:hover {
+  background-color: #666;
+}
