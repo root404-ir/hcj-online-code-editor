@@ -39,11 +39,11 @@ const Output = ({ html = "", css = "", javascript = "" }) => {
                 bottomLeft: false,
                 topLeft: false,
             }}
-            disableDragging={true}
             minWidth={200}
             minHeight={150}
             maxWidth={'100%'}
             maxHeight={1000}
+            disableDragging={true}
             onResizeStop={(e, direction, ref) => {
                 setSize({
                     width: parseInt(ref.style.width),

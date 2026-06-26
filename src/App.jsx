@@ -12,7 +12,7 @@ const App = () => {
 
     <Box>
       <div className="code_container"></div>
-      <Box bg={'black'} mt={4} padding={'0 10px'}>
+      <Box mb={100} bg={'black'} mt={4} padding={'0 10px'}>
         <Box>
           <div className="flex justify-between">
             <SocialIcons />
